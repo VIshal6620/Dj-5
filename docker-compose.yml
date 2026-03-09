@@ -30,7 +30,7 @@ services:
       - "8000:8000"
 
   frontend:
-    build: ./ui
+    build: ./frontend
     container_name: angular_frontend_3
     restart: always
     depends_on:
