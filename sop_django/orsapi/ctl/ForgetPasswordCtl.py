@@ -2,6 +2,7 @@ import json
 from django.http import JsonResponse
 from .BaseCtl import BaseCtl
 from .ErrorCtl import ErrorCtl
+from django.shortcuts import render, redirect
 from ..utility.DataValidator import DataValidator
 from ..service.ForgetPasswordService import ForgetPasswordService
 from ..service.EmailService import EmailService
@@ -61,7 +62,8 @@ class ForgetPasswordCtl(BaseCtl):
                     res["result"]["message"] = "Login ID is incorrect"
                 except Exception as ex:
                     return ErrorCtl.handle(ex)
-
+                    # res["success"] = False
+                    # res["result"]["message"] = f"{str(ex)}"
             return JsonResponse(res)
         except Exception as ex:
             return ErrorCtl.handle(ex)
