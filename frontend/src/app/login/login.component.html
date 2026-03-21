@@ -1,5 +1,88 @@
 <app-navbar></app-navbar>
 
+<div align="center" style="
+     background-image: url('assets/001login.jpg');
+     background-size: cover;
+     background-position: center;
+     min-height: 100vh;
+     padding-top: 120px;
+     ">
+
+
+  <div class="card p-4 shadow" style="width: 400px;">
+
+
+    <h2 class="text-center text-primary mb-3">Login</h2>
+
+    <!-- Message -->
+    <div class="text-center mb-2">
+      <h6 class="text-success" *ngIf="!form.error && form.message">{{ form.message }}</h6>
+      <h6 class="text-danger" *ngIf="form.error && form.message">{{ form.message }}</h6>
+    </div>
+
+    <!-- Login Form -->
+    <form>
+
+      <!-- Login ID -->
+      <div class="mb-3 text-start"> <!-- added text-start -->
+        <label class="form-label fw-bold">Login Id <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+          <input type="text" class="form-control" name="loginId" [(ngModel)]="form.data.loginId"
+            placeholder="Enter Login ID">
+        </div>
+        <small class="text-danger">{{form.inputerror.loginId}}</small>
+      </div>
+
+      
+      <!-- Password -->
+      <div class="mb-3 text-start"> <!-- added text-start -->
+        <label class="form-label fw-bold">Password <span class="text-danger">*</span></label>
+        <div class="input-group">
+          <span class="input-group-text"><i class="fa-solid fa-lock"></i></span>
+          <input type="password" class="form-control" name="password" [(ngModel)]="form.data.password"
+            placeholder="Enter Password">
+        </div>
+        <small class="text-danger">{{form.inputerror.password}}</small>
+      </div>
+
+      <!-- Buttons -->
+      <div class="text-center">
+        <button type="button" class="btn btn-primary w-100 mb-2" (click)="signIn()">
+          <i class="fa-solid fa-right-to-bracket"></i> Sign In
+        </button>
+
+        <button type="button" class="btn btn-success w-100" (click)="signUp()">
+          <i class="fa-solid fa-user-plus"></i> Sign Up
+        </button>
+      </div>
+
+      <!-- Forget Password -->
+      <div class="text-start mt-3"> <!-- added text-start -->
+        <a [routerLink]="['/forgetpassword']" class="text-decoration-none">
+          <i class="fa-solid fa-key"></i> Forget my password?
+        </a>
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<app-footer></app-footer>
+
+
+
+
+
+
+
+
+
+
+<!-- <app-navbar></app-navbar>
+
 <div align="center">
 
     <h1 align="center" style="margin-bottom: 5px; color: navy">Login</h1>
@@ -44,4 +127,4 @@
     </table>
 </div>
 
-<app-footer></app-footer>
+<app-footer></app-footer> -->

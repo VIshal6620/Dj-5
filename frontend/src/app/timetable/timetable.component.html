@@ -1,5 +1,135 @@
 <app-navbar></app-navbar>
 
+<div align="center"
+     style="
+     background-image: url('assets/2.jpg');
+     background-size: cover;
+     background-position: center;
+     min-height: 90vh;
+     padding-top: 90px;
+     ">
+
+    <!-- Heading -->
+    <h1 *ngIf="!form.data.id" style="margin-bottom: 10px; color: white; font-weight: bold;">
+        Add Timetable
+    </h1>
+
+    <h1 *ngIf="form.data.id>0" style="margin-bottom: 10px; color: white; font-weight: bold;">
+        Update Timetable
+    </h1>
+
+    <!-- Message -->
+    <div style="height: 20px; margin-bottom: 15px;">
+        <h5 style="color: lightgreen;" *ngIf="!form.error && form.message">{{ form.message }}</h5>
+        <h5 style="color: red;" *ngIf="form.error && form.message">{{ form.message }}</h5>
+    </div>
+
+    <!-- ✅ CARD STYLE -->
+    <div style="
+        background: rgba(255,255,255,0.95);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0px 8px 25px rgba(0,0,0,0.3);
+        display: inline-block;
+    ">
+
+        <table>
+
+            <tr>
+                <th align="left">Exam Time<span style="color: red">*</span></th>
+                <td>
+                    <select name="examTime"
+                            class="form-select"
+                            [(ngModel)]="form.data.examTime">
+                        <option value="undefined">------------Select------------</option>
+                        <option value="08:00 AM to 11:00 AM">08:00 AM to 11:00 AM</option>
+                        <option value="12:00 PM to 03:00 PM">12:00 PM to 03:00 PM</option>
+                        <option value="04:00 PM to 07:00 PM">04:00 PM to 07:00 PM</option>
+                    </select>
+                </td>
+                <td style="color: red;">{{form.inputerror.examTime}}</td>
+            </tr>
+
+            <tr>
+                <th align="left">Exam Date<span style="color: red">*</span></th>
+                <td>
+                    <input type="date"
+                           class="form-control"
+                           name="examDate"
+                           [(ngModel)]="form.data.examDate"
+                           [ngModel]="form.data.examDate | date:'yyyy-MM-dd'">
+                </td>
+                <td style="color: red;">{{form.inputerror.examDate}}</td>
+            </tr>
+
+            <tr>
+                <th align="left">Course<span style="color: red">*</span></th>
+                <td>
+                    <select name="courseId"
+                            class="form-select"
+                            [(ngModel)]="form.data.courseId">
+                        <option value="undefined">------------Select------------</option>
+                        <option *ngFor="let obj of form.preload.courseList" [value]="obj.id">
+                            {{obj.name}}
+                        </option>
+                    </select>
+                </td>
+                <td style="color: red;">{{form.inputerror.courseId}}</td>
+            </tr>
+
+            <tr>
+                <th align="left">Subject<span style="color: red">*</span></th>
+                <td>
+                    <select name="subjectId"
+                            class="form-select"
+                            [(ngModel)]="form.data.subjectId">
+                        <option value="undefined">------------Select------------</option>
+                        <option *ngFor="let obj of form.preload.subjectList" [value]="obj.id">
+                            {{obj.name}}
+                        </option>
+                    </select>
+                </td>
+                <td style="color: red;">{{form.inputerror.subjectId}}</td>
+            </tr>
+
+            <tr>
+                <th align="left">Semester<span style="color: red">*</span></th>
+                <td>
+                    <select name="semester"
+                            class="form-select"
+                            [(ngModel)]="form.data.semester">
+                        <option value="undefined">------------Select------------</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                </td>
+                <td style="color: red;">{{form.inputerror.semester}}</td>
+            </tr>
+
+            <tr>
+                <th></th>
+                <td align="left" colspan="2" style="padding-top: 15px;">
+                    <button class="btn btn-primary" (click)="submit()">
+                        Save
+                    </button>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+</div>
+
+<app-footer></app-footer>
+
+<!-- <app-navbar></app-navbar>
+
 <div align="center">
     <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add Timetable</h1>
     <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update Timetable</h1>
@@ -75,10 +205,10 @@
             <th></th>
             <td align="left" colspan="2">
                 <button (click)="submit()">save</button> &nbsp;
-                <!-- <button (click)="forward('timetablelist')">list</button> -->
+                
             </td>
         </tr>
     </table>
 </div>
 
-<app-footer></app-footer>
+<app-footer></app-footer> -->

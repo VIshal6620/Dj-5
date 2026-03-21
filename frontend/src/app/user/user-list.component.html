@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar>
 
 <div align="center">
     <h1 align="center" style="margin-bottom: 5px; color: navy;">User List</h1>
@@ -70,9 +70,9 @@
                 <td style="width: 25%"><button (click)="previous()" [disabled]="form.pageNo == 0">previous</button></td>
                 <td align="center" style="width: 25%"><button (click)="forward('/user')">new</button></td>
                 <td align="center" style="width: 25%"><button (click)="delete()">delete</button></td>
-                <!-- <td style="width: 25%" align="right"><button (click)="next()" [disabled]="form.nextListSize == 0">next</button></td> -->
+                 <td style="width: 25%" align="right"><button (click)="next()" [disabled]="form.nextListSize == 0">next</button></td> -->
                  <!-- <td style="width: 25%" align="right"><button (click)="next()" [disabled]="form.list.length < 5">next</button></td> -->
-                <td style="width: 25%" align="right"> <button (click)="next()" [disabled]="form.list.length == 0 || form.list[form.list.length-1].id == form.lastId">next</button></td>
+                <!-- <td style="width: 25%" align="right"> <button (click)="next()" [disabled]="form.list.length == 0 || form.list[form.list.length-1].id == form.lastId">next</button></td>
             </tr>
         </table>
     </div>
@@ -80,6 +80,152 @@
     <br>
 
     <div *ngIf="form.list.length == 0"><button (click)="reset()">Back</button></div>
+</div>
+
+<app-footer></app-footer>  -->
+
+
+
+<app-navbar></app-navbar>
+
+<div class="container-fluid mt-6"
+     style="background-image: url('assets/whit.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 86vh;
+            padding: 20px;">
+
+  <!-- Heading -->
+  <h1 class="text-center mb-4 text-primary">User List</h1>
+
+  <!-- Messages -->
+  <div class="text-center mb-3">
+    <div *ngIf="!form.error && form.message" class="text-success small">{{ form.message }}</div>
+    <div *ngIf="form.error && form.message" class="text-danger small">{{ form.message }}</div>
+  </div>
+
+  <!-- Search Section -->
+  <div *ngIf="form.list.length > 0" class="card shadow-sm p-3 mb-3 bg-white bg-opacity-75">
+
+    <div class="row g-3 align-items-end">
+
+      <div class="col-md-3">
+        <label class="form-label"><b>First Name</b></label>
+        <input type="text" class="form-control form-control-sm"
+               name="firstName" [(ngModel)]="form.firstName"
+               placeholder="Enter First Name">
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label"><b>Login Id</b></label>
+        <input type="text" class="form-control form-control-sm"
+               name="loginId" [(ngModel)]="form.loginId"
+               placeholder="Enter Email ID">
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label"><b>Role</b></label>
+        <select class="form-select form-select-sm"
+                name="roleId" [(ngModel)]="form.roleId">
+          <option value="undefined">------------Select------------</option>
+          <option *ngFor="let obj of form.preload.roleList" [value]="obj.id">
+            {{obj.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="col-md-3">
+        <button class="btn btn-primary btn-sm me-2" (click)="search()">Search</button>
+        <button class="btn btn-secondary btn-sm" (click)="reset()">Reset</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="table-responsive bg-white bg-opacity-75 p-2 rounded">
+
+    <table class="table table-bordered table-hover text-center align-middle">
+
+      <thead class="table-light">
+        <tr>
+          <th><input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)" /></th>
+          <th>S.No</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Login Id</th>
+          <th>Date of Birth</th>
+          <th>Role</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>Mobile</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let m of form.list; let i = index">
+          <td>
+            <input type="checkbox"
+                   #checkboxes
+                   (change)="checklistUpdate()"
+                   [id]="m.id"
+                   [value]="isMasterSel">
+          </td>
+
+          <td>{{(form.pageNo*5)+i+1}}</td>
+          <td>{{m.firstName}}</td>
+          <td>{{m.lastName}}</td>
+          <td>{{m.loginId}}</td>
+          <td>{{m.dob | date:'dd-MM-yyyy'}}</td>
+          <td>{{m.roleName}}</td>
+          <td>{{m.address}}</td>
+          <td>{{m.gender}}</td>
+          <td>{{m.mobileNumber}}</td>
+
+          <td>
+            <a (click)="forward('/user/' + m.id)" style="cursor:pointer;">Edit</a>
+          </td>
+
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+  <!-- Pagination Buttons -->
+  <div class="d-flex justify-content-between mt-3">
+
+    <button class="btn btn-outline-primary btn-sm"
+            (click)="previous()"
+            [disabled]="form.pageNo == 0">
+      Previous
+    </button>
+
+    <div>
+      <button class="btn btn-success btn-sm me-2"
+              (click)="forward('/user')">
+        New
+      </button>
+
+      <button class="btn btn-danger btn-sm me-1"
+              (click)="delete()">
+        Delete
+      </button>
+
+      <button class="btn btn-outline-primary btn-sm"
+              (click)="next()"
+              [disabled]="form.list.length == 0 || form.list[form.list.length-1].id == form.lastId">
+        Next
+      </button>
+    </div>
+
+  </div>
+
+  <!-- No Data -->
+  <div *ngIf="form.list.length == 0" class="text-center mt-3">
+    <button class="btn btn-secondary btn-sm" (click)="reset()">Back</button>
+  </div>
 </div>
 
 <app-footer></app-footer>

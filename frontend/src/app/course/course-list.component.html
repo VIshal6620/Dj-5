@@ -1,5 +1,139 @@
 <app-navbar></app-navbar>
 
+<div style="
+     background-image: url('assets/whit.jpg');
+     background-size: cover;
+     background-position: center;
+     min-height: 90vh;
+     padding: 80px 20px;
+     ">
+
+    <!-- Heading -->
+    <h1 align="center" style="margin-bottom: 10px; color: rgb(21, 21, 165); font-weight: bold;">
+        Course List
+    </h1>
+
+    <!-- Message -->
+    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
+        <h5 style="color: lightgreen;" *ngIf="!form.error && form.message">{{ form.message }}</h5>
+        <h5 style="color: red;" *ngIf="form.error && form.message">{{ form.message }}</h5>
+    </div>
+
+    <!-- ✅ FULL WIDTH CONTAINER -->
+    <div style="
+        width: 100%;
+        background: rgba(255,255,255,0.95);
+        padding: 20px;
+        border-radius: 10px;
+        overflow-x: auto;
+    ">
+
+        <div *ngIf="form.list.length > 0">
+
+            <!-- Search -->
+            <table style="width: 100%">
+                <tr>
+                    <td align="center">
+                        <label><b>Course Name: </b></label>
+
+                        <input type="text" class="form-control d-inline w-auto" name="name" [(ngModel)]="form.name"
+                            placeholder="Enter Course Name">
+
+                        <button class="btn btn-primary btn-sm ms-2" (click)="search()">Search</button>
+                        <button class="btn btn-secondary btn-sm ms-2" (click)="reset()">Reset</button>
+                    </td>
+                </tr>
+            </table>
+
+            <br>
+
+            <!-- ✅ TABLE FULL WIDTH -->
+            <table border="1" class="table table-bordered table-hover text-center align-middle"
+                style="width: 100%; min-width: 800px;">
+
+                <tr class="table-primary">
+                    <th>
+                        <input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)" />
+                    </th>
+                    <th>S.No</th>
+                    <th>Name</th>
+                    <th>Duration</th>
+                    <th>Description</th>
+                    <th>Edit</th>
+                </tr>
+
+                <tr *ngFor="let m of form.list; let i = index">
+                    <td>
+                        <input type="checkbox" (change)="checklistUpdate()" [id]="m.id">
+                    </td>
+
+                    <td>{{(form.pageNo*5)+i+ 1}}</td>
+                    <td>{{m.name}}</td>
+                    <td>{{m.duration}} Year</td>
+
+                    <!-- TEXT WRAP FIX -->
+                    <td style="word-break: break-word;">
+                        {{m.description}}
+                    </td>
+
+                    <td>
+                        <a (click)="forward('/course/' +  m.id)" class="text-primary"
+                            style="cursor: pointer; text-decoration: none;">
+                            Edit
+                        </a>
+                    </td>
+                </tr>
+
+            </table>
+
+            <br>
+
+            <!-- Buttons -->
+            <table style="width: 100%">
+                <tr>
+                    <td style="width: 25%">
+                        <button class="btn btn-outline-primary" (click)="previous()" [disabled]="form.pageNo == 0">
+                            Previous
+                        </button>
+                    </td>
+
+                    <td align="center" style="width: 25%">
+                        <button class="btn btn-success" (click)="forward('/course')">
+                            New
+                        </button>
+                    </td>
+
+                    <td align="center" style="width: 25%">
+                        <button class="btn btn-danger" (click)="delete()">
+                            Delete
+                        </button>
+                    </td>
+
+                    <td style="width: 25%" align="right">
+                        <button class="btn btn-outline-primary" [disabled]="form.list.length < 5" (click)="next()">
+                            Next
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+        <!-- No Data -->
+        <div *ngIf="form.list.length == 0" align="center">
+            <button class="btn btn-secondary" (click)="reset()">Back</button>
+        </div>
+
+    </div>
+</div>
+
+<app-footer></app-footer>
+
+
+
+
+<!-- <app-navbar></app-navbar>
+
 <div align="center">
     <h1 align="center" style="margin-bottom: 5px; color: navy;">Course List</h1>
 
@@ -60,4 +194,4 @@
     <div *ngIf="form.list.length == 0"><button (click)="reset()">Back</button></div>
 </div>
 
-<app-footer></app-footer>
+<app-footer></app-footer> -->

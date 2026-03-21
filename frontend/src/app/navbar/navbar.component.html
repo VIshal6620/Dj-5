@@ -1,4 +1,250 @@
-<div *ngIf="isLogin()">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ORS</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <style>
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #141212;
+      color: white;
+      text-align: center;
+      height: 35px;
+      padding-top: 5px;
+    }
+
+    .navbar-brand img {
+      height: 40px;
+    }
+
+    .nav-link {
+      color: white !important;
+    }
+
+    .nav-link:hover {
+      color: #ffd700 !important;
+    }
+
+    .dropdown-menu a {
+      color: #343a40 !important;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Logged-in Navbar -->
+  <nav *ngIf="isLogin()" class="navbar navbar-expand-lg navbar-dark" style="background-color:#363636ff;">
+    <div class="container-fluid">
+     <a class="navbar-brand" routerLink="/dashboard"><img src="assets/customLogo1.png" alt="Logo"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+        aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-1">
+
+          <!-- User Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+              <i class="fa fa-user"></i> User
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/user']"><i class="fa fa-user"></i> Add User</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/userlist']"><i class="fa fa-list"></i> User List</a></li>
+            </ul>
+          </li>
+
+          <!-- Role Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+              <i class="fa fa-users"></i> Role
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/role']"><i class="fa fa-users"></i> Add Role</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/rolelist']"><i class="fa fa-list"></i> Role List</a></li>
+            </ul>
+          </li>
+
+          <!-- College Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              <i class="fa fa-university"></i> College
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/college']"><i class="fa fa-university"></i> Add College</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/collegelist']"><i class="fa fa-list"></i> College List</a></li>
+            </ul>
+          </li>
+
+          <!-- Course Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              <i class="fa fa-book"></i> Course
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/course']"><i class="fa fa-book"></i> Add Course</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/courselist']"><i class="fa fa-list"></i> Course List</a></li>
+            </ul>
+          </li>
+
+          <!-- Subject Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              <i class="fa fa-folder"></i> Subject
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/subject']"><i class="fa fa-folder"></i> Add Subject</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/subjectlist']"><i class="fa fa-list"></i> Subject List</a></li>
+            </ul>
+          </li>
+
+          <!-- Faculty Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              <i class="fa fa-address-book"></i> Faculty
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/faculty']"><i class="fa fa-address-book"></i> Add Faculty</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/facultylist']"><i class="fa fa-list"></i> Faculty List</a></li>
+            </ul>
+          </li>
+
+          <!-- Marksheet Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              <i class="fa fa-server"></i> Marksheet
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/marksheet']"><i class="fa fa-server"></i> Add Marksheet</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/marksheetlist']"><i class="fa fa-list"></i> Marksheet List</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/meritlist']"><i class="fa fa-list"></i> Merit List</a></li>
+            </ul>
+          </li>
+
+          <!-- Student Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+              <i class="fa fa-graduation-cap"></i> Student
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/student']"><i class="fa fa-graduation-cap"></i> Add Student</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/studentlist']"><i class="fa fa-list"></i> Student List</a></li>
+            </ul>
+          </li>
+
+          <!-- Timetable Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+              <i class="fa fa-table"></i> Timetable
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['/timetable']"><i class="fa fa-table"></i> Add Timetable</a></li>
+              <li><a class="dropdown-item" [routerLink]="['/timetablelist']"><i class="fa fa-list"></i> Timetable List</a></li>
+            </ul>
+          </li>
+
+          <!-- Change Password -->
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/changepassword']"><i class="fa fa-key"></i> Change Password</a>
+          </li>
+
+        </ul>
+
+        <!-- User info / Logout -->
+        <span class="navbar-text text-warning">
+          Hi, {{ form.data.firstName }} ( {{ form.data.roleName }} ) |
+          <a href="#" (click)="logout()" class="text-warning"><i class="fa fa-sign-out-alt"></i> Logout</a>
+        </span>
+      </div>
+    </div>
+  </nav>
+
+ <!-- Guest Navbar -->
+<nav *ngIf="!isLogin()" class="navbar navbar-expand-lg navbar-dark" style="background-color:#363636ff;">
+  <div class="container-fluid">
+
+    <!-- LEFT: Logo -->
+  <a class="navbar-brand" routerLink="/dashboard">
+  <img src="assets/customLogo1.png" alt="Logo" style="height:40px;">
+</a>
+
+    <!-- Mobile Toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#guestNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- RIGHT SIDE -->
+    <div class="collapse navbar-collapse justify-content-end" id="guestNav">
+      <ul class="navbar-nav">
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" role="button" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-user"></i> Hi, Guest
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end">
+
+        <li>
+         <a class="dropdown-item" routerLink="/signup"><i class="fa-solid fa-user-plus"></i> Registration</a>
+        </li>
+
+            <li>
+              <a class="dropdown-item" routerLink="/login">
+                <i class="fa-solid fa-right-to-bracket"></i> Login
+              </a>
+            </li>
+
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="footer">
+    <b>Copyright &copy; Rays Technologies</b>
+  </div>
+
+  <!-- Bootstrap JS Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+<!-- <div *ngIf="isLogin()">
     <h3><b>Hi, {{ form.data.firstName }} ( {{ form.data.roleName }} )</b></h3>
 
     <a routerLink="/user"><b>Add User</b></a> |
@@ -32,4 +278,4 @@
     <a routerLink="/login"><b>Login</b></a>
 </div>
 
-<hr>
+<hr> -->

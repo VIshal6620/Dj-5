@@ -1,4 +1,102 @@
+<!-- Navbar -->
 <app-navbar></app-navbar>
+
+<div align="center"
+     style="
+     background-image: url('assets/2.jpg');
+     background-size: cover;
+     background-position: center;
+     min-height: 90vh;
+     padding-top: 100px;
+     ">
+
+    <!-- Heading -->
+    <h1 *ngIf="!form.data.id" style="margin-bottom: 10px; color: rgb(9, 9, 9);">Add Role</h1>
+    <h1 *ngIf="form.data.id>0" style="margin-bottom: 10px; color: white;">Update Role</h1>
+
+    <!-- Message -->
+    <div style="height: 20px; margin-bottom: 15px;">
+        <h5 style="color: lightgreen;" *ngIf="!form.error && form.message">{{ form.message }}</h5>
+        <h5 style="color: red;" *ngIf="form.error && form.message">{{ form.message }}</h5>
+    </div>
+
+    <!-- ✅ FIXED CARD -->
+    <div style="
+        width: 360px;
+        padding: 25px;
+        border-radius: 15px;
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow: 0px 8px 25px rgba(0,0,0,0.3);
+        text-align: left;
+    ">
+
+        <table style="width: 100%;">
+
+            <!-- Name -->
+            <tr>
+                <th>Name <span style="color:red">*</span></th>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text"
+                           name="name"
+                           [(ngModel)]="form.data.name"
+                           placeholder="Enter Role Name"
+                           style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+                </td>
+            </tr>
+            <tr>
+                <td style="color: red;">{{form.inputerror.name}}</td>
+            </tr>
+
+            <!-- Description -->
+            <tr>
+                <th>Description <span style="color:red">*</span></th>
+            </tr>
+            <tr>
+                <td>
+                    <textarea
+                        name="description"
+                        [(ngModel)]="form.data.description"
+                        rows="3"
+                        placeholder="Enter Short description"
+                        style="width: 100%; padding: 8px; border-radius: 5px; border: 1px solid #ccc;">
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td style="color: red;">{{form.inputerror.description}}</td>
+            </tr>
+
+            <!-- Button -->
+            <tr>
+                <td align="center" style="padding-top: 15px;">
+                    <button (click)="submit()"
+                            style="
+                            background: linear-gradient(45deg, #007bff, #00c6ff);
+                            color: white;
+                            border: none;
+                            padding: 10px 25px;
+                            border-radius: 25px;
+                            font-weight: bold;
+                            cursor: pointer;
+                            ">
+                        Save
+                    </button>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+</div>
+<!-- Footer -->
+<app-footer></app-footer>
+
+
+
+
+<!-- <app-navbar></app-navbar>
 
 <div align="center">
     <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add Role</h1>
@@ -38,10 +136,10 @@
             <th></th>
             <td align="left" colspan="2">
                 <button (click)="submit()">save</button> &nbsp;
-                <!-- <button (click)="forward('/rolelist')">list</button> -->
+
             </td>
         </tr>
     </table>
 </div>
 
-<app-footer></app-footer>
+<app-footer></app-footer> -->
