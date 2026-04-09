@@ -31,9 +31,10 @@ import { MarksheetListComponent } from './marksheet/marksheet-list.component';
 import { StudentListComponent } from './student/student-list.component';
 import { TimetableListComponent } from './timetable/timetable-list.component';
 import { ChangepasswordComponent } from './user/changepassword.component';
-
 import { AuthServiceService } from './auth-service.service';
 import { ForgetpasswordComponent } from './login/forgetpassword.component';
+import { EnergyComponent } from './energy/energy.component';
+import { EnergyListComponent } from './energy/energy-list.component';
 
 
 
@@ -64,7 +65,9 @@ import { ForgetpasswordComponent } from './login/forgetpassword.component';
     StudentListComponent,
     TimetableListComponent,
     ChangepasswordComponent,
-    ForgetpasswordComponent,  
+    ForgetpasswordComponent,
+    EnergyComponent,
+    EnergyListComponent,  
     
   ],
   imports: [

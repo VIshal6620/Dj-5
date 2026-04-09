@@ -10,8 +10,8 @@
      ">
 
     <!-- Heading -->
-    <h1 align="center" style="margin-bottom: 10px; color: rgb(38, 33, 206); font-weight: bold;">
-        College List
+    <h1 align="center" style="margin-bottom: 10px; color: rgb(39, 17, 208); font-weight: bold;">
+        Energy List
     </h1>
 
     <!-- Message -->
@@ -20,7 +20,7 @@
         <h5 style="color: red;" *ngIf="form.error && form.message">{{ form.message }}</h5>
     </div>
 
-    <!-- ✅ FULL WIDTH CONTAINER -->
+    <!-- ✅ FULL WIDTH -->
     <div style="
         width: 100%;
         background: rgba(255,255,255,0.95);
@@ -35,23 +35,20 @@
             <table style="width: 100%">
                 <tr>
                     <td align="center">
-                        <label><b>College Name: </b></label>
 
-                        <input type="text"
-                               class="form-control d-inline w-auto"
-                               name="name"
-                               [(ngModel)]="form.name"
-                               placeholder="Enter College Name">
-
+                        <label><b>energySource: </b></label>
+                        <input type="text"class="form-control d-inline w-auto"name="energySource"[(ngModel)]="form.energySource"placeholder="Enter Energy Source">
+                               
                         <button class="btn btn-primary btn-sm ms-2" (click)="search()">Search</button>
                         <button class="btn btn-secondary btn-sm ms-2" (click)="reset()">Reset</button>
+
                     </td>
                 </tr>
             </table>
 
             <br>
 
-            <!-- ✅ FULL WIDTH TABLE -->
+            <!-- Table -->
             <table border="1"
                    class="table table-bordered table-hover text-center align-middle"
                    style="width: 100%; min-width: 1000px;">
@@ -63,11 +60,10 @@
                                (change)="checkUncheckAll($event)" />
                     </th>
                     <th>S.No</th>
-                    <th>Name</th>
-                    <th>Address</th>
-                    <th>State</th>
-                    <th>City</th>
-                    <th>Phone</th>
+                    <th>Energy Source </th>
+                    <th>Production Unit</th>
+                    <th>Output Level</th>
+                    <th>Efficiency Rate</th>
                     <th>Edit</th>
                 </tr>
 
@@ -81,17 +77,16 @@
           </td>
 
                     <td>{{(form.pageNo*5)+i+ 1}}</td>
-                    <td>{{m.name}}</td>
-                    <td style="word-break: break-word;">{{m.address}}</td>
-                    <td>{{m.state}}</td>
-                    <td>{{m.city}}</td>
-                    <td>{{m.phoneNumber}}</td>
+                    <td>{{m.energySource}}</td>
+                    <td>{{m.productionUnit}}</td>
+                    <td>{{m.outputLevel}}</td>
+                    <td>{{m.efficiencyRate}}</td>
 
+                    <!-- ✅ EDIT FIX -->
                     <td>
-                        <a (click)="forward('/college/' +  m.id)"
-                           class="text-primary"
-                           style="cursor: pointer; text-decoration: none;">
-                            Edit
+                        <a (click)="forward('/energy/' + m.id)"
+                           class="btn btn-sm btn-outline-primary">
+                            <i class="fa fa-edit"></i> Edit
                         </a>
                     </td>
                 </tr>
@@ -103,6 +98,7 @@
             <!-- Buttons -->
             <table style="width: 100%">
                 <tr>
+
                     <td style="width: 25%">
                         <button class="btn btn-outline-primary"
                                 (click)="previous()"
@@ -113,7 +109,7 @@
 
                     <td align="center" style="width: 25%">
                         <button class="btn btn-success"
-                                (click)="forward('/college')">
+                                (click)="forward('/energy')">
                             New
                         </button>
                     </td>
@@ -127,11 +123,12 @@
 
                     <td style="width: 25%" align="right">
                         <button class="btn btn-outline-primary"
-                                [disabled]="form.list.length < 5"
-                                (click)="next()">
+                                (click)="next()"
+                                [disabled]="form.list.length == 0 || form.list[form.list.length-1].id == form.lastId">
                             Next
                         </button>
                     </td>
+
                 </tr>
             </table>
 
@@ -146,4 +143,5 @@
 </div>
 
 <app-footer></app-footer>
+
 

@@ -1,13 +1,12 @@
 import json
 from django.http import JsonResponse
-from .BaseCtl import BaseCtl
-from .ErrorCtl import ErrorCtl
-from django.shortcuts import render, redirect
-from ..utility.DataValidator import DataValidator
-from ..service.ForgetPasswordService import ForgetPasswordService
-from ..service.EmailService import EmailService
-from ..service.EmailMessege import EmailMessege
+from ..ctl.BaseCtl import BaseCtl
+from ..ctl.ErrorCtl import ErrorCtl
 from ..models import User
+from ..service.EmailMessege import EmailMessege
+from ..service.EmailService import EmailService
+from ..service.ForgetPasswordService import ForgetPasswordService
+from ..utility.DataValidator import DataValidator
 
 
 class ForgetPasswordCtl(BaseCtl):

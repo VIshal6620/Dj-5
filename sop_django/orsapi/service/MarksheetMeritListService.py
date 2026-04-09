@@ -1,7 +1,6 @@
-from ..models import Marksheet
-from ..utility.DataValidator import DataValidator
-from .BaseService import BaseService
 from django.db import connection
+from ..models import Marksheet
+from ..service.BaseService import BaseService
 
 
 class MarksheetMeritListService(BaseService):

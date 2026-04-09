@@ -82,3 +82,14 @@ class DataValidator:
             return False  # valid integer
         else:
             return True  # invalid integer
+
+    @classmethod
+    def isSpecial(cls, val):
+        if val is None or val == "":
+            return False
+
+        # RW101 format check
+        if re.match(r"^RW\d+$", val):
+            return True
+        else:
+            return False

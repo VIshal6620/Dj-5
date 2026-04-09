@@ -23,6 +23,8 @@ import { StudentListComponent } from './student/student-list.component';
 import { TimetableListComponent } from './timetable/timetable-list.component';
 import { ChangepasswordComponent } from './user/changepassword.component';
 import { ForgetpasswordComponent } from './login/forgetpassword.component';
+import { EnergyComponent } from './energy/energy.component';
+import { EnergyListComponent } from './energy/energy-list.component';
 
 
 
@@ -81,6 +83,10 @@ const routes: Routes = [
   {
     path: 'student',
     component: StudentComponent
+  },
+  {
+    path: 'energy',
+    component: EnergyComponent
   },
   {
     path: 'userlist',
@@ -153,6 +159,14 @@ const routes: Routes = [
   {
     path: 'timetable/:id',
     component: TimetableComponent
+  },
+  {
+    path: 'energylist',
+    component: EnergyListComponent
+  },
+  {
+    path: 'energy/:id',
+    component: EnergyComponent
   },
   {
     path: 'changepassword',

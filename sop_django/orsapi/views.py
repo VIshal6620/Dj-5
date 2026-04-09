@@ -16,6 +16,7 @@ from .ctl.TimeTableCtl import TimeTableCtl
 from .ctl.ChangePasswordCtl import ChangePasswordCtl
 from .ctl.ForgetPasswordCtl import ForgetPasswordCtl
 from .ctl.ErrorCtl import ErrorCtl
+from .ctl.EnergyCtl import EnergyCtl
 
 
 @csrf_exempt

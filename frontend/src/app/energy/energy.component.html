@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+
+<div align="center"
+     style="
+     background-image: url('assets/2.jpg');
+     background-size: cover;
+     background-position: center;
+     min-height: 90vh;
+     padding-top: 90px;
+     ">
+
+    <!-- Heading -->
+    <h1 *ngIf="!form.data.id" style="margin-bottom: 10px; color: white; font-weight: bold;">
+        Add Energy
+    </h1>
+
+    <h1 *ngIf="form.data.id>0" style="margin-bottom: 10px; color: white; font-weight: bold;">
+        Update Energy
+    </h1>
+
+    <!-- Message -->
+    <div style="height: 20px; margin-bottom: 15px;">
+        <h5 style="color: lightgreen;" *ngIf="!form.error && form.message">{{ form.message }}</h5>
+        <h5 style="color: red;" *ngIf="form.error && form.message">{{ form.message }}</h5>
+    </div>
+
+    <!-- ✅ CARD STYLE -->
+    <div style="
+        background: rgba(255,255,255,0.95);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0px 8px 25px rgba(0,0,0,0.3);
+        display: inline-block;
+    ">
+
+        <table>
+
+            <tr>
+                <th align="left">EnergySource<span style="color: red">*</span></th>
+                <td>
+                    <input type="text"class="form-control"name="energySource"[(ngModel)]="form.data.energySource"placeholder="Enter energySource">
+                </td>
+                <td style="color: red;">{{form.inputerror.energySource}}</td>
+            </tr>
+
+            <tr>
+                <th align="left">Production Unit<span style="color: red">*</span></th>
+                <td>
+                    <input type="text"class="form-control"name="productionUnit"[(ngModel)]="form.data.productionUnit"placeholder="Enter productionUnit">
+                </td>
+                <td style="color: red;">{{form.inputerror.productionUnit}}</td>
+            </tr>
+
+            <tr>
+                <th align="left">Output Level<span style="color: red">*</span></th>
+                <td>
+                    <input type="text"class="form-control"name="outputLevel"[(ngModel)]="form.data.outputLevel"[ngModel]="form.data.outputLevel"placeholder="Enter output Level">
+                </td>
+                <td style="color: red;">{{form.inputerror.outputLevel}}</td>
+            </tr>
+
+            <tr>
+                <th align="left">Efficiency Rate<span style="color: red">*</span></th>
+                <td>
+                    <input type="text"class="form-control"name="efficiencyRate"[(ngModel)]="form.data.efficiencyRate"placeholder="Enter Efficiency Rate">
+                </td>
+                <td style="color: red;">{{form.inputerror.efficiencyRate}}</td>
+            </tr>
+
+            <tr>
+                <th></th>
+                <td align="left" colspan="2" style="padding-top: 15px;">
+                    <button class="btn btn-primary" (click)="submit()">
+                        Save
+                    </button>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+</div>
+
+<app-footer></app-footer>
+

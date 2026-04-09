@@ -38,11 +38,7 @@
             <tr>
                 <th align="left">First Name<span style="color: red">*</span></th>
                 <td>
-                    <input type="text"
-                           class="form-control"
-                           name="firstName"
-                           [(ngModel)]="form.data.firstName"
-                           placeholder="Enter First Name">
+                    <input type="text"class="form-control"name="firstName"[(ngModel)]="form.data.firstName"placeholder="Enter First Name">
                 </td>
                 <td style="color: red;">{{form.inputerror.firstName}}</td>
             </tr>
@@ -50,11 +46,7 @@
             <tr>
                 <th align="left">Last Name<span style="color: red">*</span></th>
                 <td>
-                    <input type="text"
-                           class="form-control"
-                           name="lastName"
-                           [(ngModel)]="form.data.lastName"
-                           placeholder="Enter Last Name">
+                    <input type="text"class="form-control"name="lastName"[(ngModel)]="form.data.lastName"placeholder="Enter Last Name">
                 </td>
                 <td style="color: red;">{{form.inputerror.lastName}}</td>
             </tr>
@@ -62,11 +54,7 @@
             <tr>
                 <th align="left">Date of Birth<span style="color: red">*</span></th>
                 <td>
-                    <input type="date"
-                           class="form-control"
-                           name="dob"
-                           [(ngModel)]="form.data.dob"
-                           [ngModel]="form.data.dob | date:'yyyy-MM-dd'">
+                    <input type="date"class="form-control"name="dob"[(ngModel)]="form.data.dob"[ngModel]="form.data.dob | date:'yyyy-MM-dd'">
                 </td>
                 <td style="color: red;">{{form.inputerror.dob}}</td>
             </tr>
@@ -74,12 +62,7 @@
             <tr>
                 <th align="left">Mobile No<span style="color: red">*</span></th>
                 <td>
-                    <input type="text"
-                           class="form-control"
-                           name="mobileNumber"
-                           [(ngModel)]="form.data.mobileNumber"
-                           maxlength="10"
-                           placeholder="Enter Mobile No.">
+                    <input type="text"class="form-control"name="mobileNumber"[(ngModel)]="form.data.mobileNumber"maxlength="10"placeholder="Enter Mobile No.">
                 </td>
                 <td style="color: red;">{{form.inputerror.mobileNumber}}</td>
             </tr>
@@ -87,11 +70,7 @@
             <tr>
                 <th align="left">Email Id<span style="color: red">*</span></th>
                 <td>
-                    <input type="email"
-                           class="form-control"
-                           name="email"
-                           [(ngModel)]="form.data.email"
-                           placeholder="Enter Email ID">
+                    <input type="email"class="form-control"name="email"[(ngModel)]="form.data.email"placeholder="Enter Email ID">
                 </td>
                 <td style="color: red;">{{form.inputerror.email}}</td>
             </tr>
@@ -99,9 +78,7 @@
             <tr>
                 <th align="left">College<span style="color: red">*</span></th>
                 <td>
-                    <select name="collegeId"
-                            class="form-select"
-                            [(ngModel)]="form.data.collegeId">
+                    <select name="collegeId"class="form-select"[(ngModel)]="form.data.collegeId">
                         <option value="undefined">------------Select------------</option>
                         <option *ngFor="let obj of form.preload.collegeList" [value]="obj.id">
                             {{obj.name}}
@@ -127,69 +104,3 @@
 
 <app-footer></app-footer>
 
-<!-- <app-navbar></app-navbar>
-
-<div align="center">
-    <h1 *ngIf="!form.data.id" align="center" style="margin-bottom: 5px; color: navy">Add Student</h1>
-    <h1 *ngIf="form.data.id>0" align="center" style="margin-bottom: 5px; color: navy">Update Student</h1>
-
-    <div style="height: 20px; margin-bottom: 10px; text-align: center;">
-        <h3 style="margin: 0; color: green;" *ngIf="!form.error && form.message">{{ form.message }}</h3>
-        <h3 style="margin: 0; color: red;" *ngIf="form.error && form.message">{{ form.message }}</h3>
-    </div>
-
-    <table>
-
-        <tr>
-            <th align="left">First Name<span style="color: red">*</span></th>
-            <td><input type="text" name="firstName" [(ngModel)]="form.data.firstName" placeholder="Enter First Name"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.firstName}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">Last Name<span style="color: red">*</span></th>
-            <td><input type="text" name="lastName" [(ngModel)]="form.data.lastName" placeholder="Enter Last Name"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.lastName}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">Date of Birth<span style="color: red">*</span></th>
-            <td><input type="date" name="dob" [(ngModel)]="form.data.dob" [ngModel]="form.data.dob | date:'yyyy-MM-dd'" placeholder="Select Date of Birth" style="width: 97%;"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.dob}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">Mobile No<span style="color: red">*</span></th>
-            <td><input type="text" name="mobileNumber" [(ngModel)]="form.data.mobileNumber" maxlength="10" placeholder="Enter Mobile No."></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.mobileNumber}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">Email Id<span style="color: red">*</span></th>
-            <td><input type="text" name="email" [(ngModel)]="form.data.email" placeholder="Enter Email ID"></td>
-            <td style="position: fixed; color: red;">{{form.inputerror.email}}</td>
-        </tr>
-
-        <tr>
-            <th align="left">College<span style="color: red">*</span></th>
-            <td>
-                <select name="collegeId" [(ngModel)]="form.data.collegeId" style="width: 170px;">
-                    <option value="undefined">------------Select------------</option>
-                    <option *ngFor="let obj of form.preload.collegeList" [value]="obj.id">{{obj.name}}</option>
-                </select>
-            </td>
-            <td style="position: fixed; color: red;">{{form.inputerror.collegeId}}</td>
-        </tr>
-
-        <tr></tr>
-
-        <tr>
-            <th></th>
-            <td align="left" colspan="2">
-                <button (click)="submit()">save</button> &nbsp;
-            </td>
-        </tr>
-    </table>
-</div>
-
-<app-footer></app-footer> -->

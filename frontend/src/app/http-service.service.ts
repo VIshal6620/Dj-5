@@ -19,7 +19,7 @@ export class HttpServiceService {
           ? err.error
           : {
               success: false,
-              result: { message: 'DB Server unavailable' }
+              result: { message: 'Unable to connect. Please try again later' }
             };
 
         callback(res);
@@ -37,7 +37,7 @@ export class HttpServiceService {
           ? err.error
           : {
               success: false,
-              result: { message: 'DB Server unavailable' }
+              result: { message: 'Unable to connect. Please try again later' }
             };
 
         callback(res);
