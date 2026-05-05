@@ -35,6 +35,8 @@ import { AuthServiceService } from './auth-service.service';
 import { ForgetpasswordComponent } from './login/forgetpassword.component';
 import { EnergyComponent } from './energy/energy.component';
 import { EnergyListComponent } from './energy/energy-list.component';
+import { TopicComponent } from './topic/topic.component';
+import { TopicListComponent } from './topic/topic-list.component';
 
 
 
@@ -67,7 +69,9 @@ import { EnergyListComponent } from './energy/energy-list.component';
     ChangepasswordComponent,
     ForgetpasswordComponent,
     EnergyComponent,
-    EnergyListComponent,  
+    EnergyListComponent,
+    TopicComponent,
+    TopicListComponent,  
     
   ],
   imports: [

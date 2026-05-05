@@ -11,11 +11,11 @@
 
     <!-- Heading -->
     <h1 *ngIf="!form.data.id" style="margin-bottom: 10px; color: rgb(17, 14, 224); font-weight: bold;">
-        Add Energy
+        Add Topic
     </h1>
 
     <h1 *ngIf="form.data.id>0" style="margin-bottom: 10px; color: white; font-weight: bold;">
-        Update Energy
+        Update Topic
     </h1>
 
     <!-- Message -->
@@ -36,35 +36,35 @@
         <table>
 
             <tr>
-                <th align="left">EnergySource<span style="color: red">*</span></th>
+                <th align="left">TopicCode<span style="color: red">*</span></th>
                 <td>
-                    <input type="text"class="form-control"name="energySource"[(ngModel)]="form.data.energySource"placeholder="Enter energySource">
+                    <input type="text"class="form-control"name="topicCode"[(ngModel)]="form.data.topicCode"placeholder="Enter topicCode">
                 </td>
-                <td style="color: red;">{{form.inputerror.energySource}}</td>
+                <td style="color: red;">{{form.inputerror.topicCode}}</td>
             </tr>
 
             <tr>
-                <th align="left">Production Unit<span style="color: red">*</span></th>
+                <th align="left">TopicName<span style="color: red">*</span></th>
                 <td>
-                    <input type="text"class="form-control"name="productionUnit"[(ngModel)]="form.data.productionUnit"placeholder="Enter productionUnit">
+                    <input type="text"class="form-control"name="topicName"[(ngModel)]="form.data.topicName"placeholder="Enter topicName">
                 </td>
-                <td style="color: red;">{{form.inputerror.productionUnit}}</td>
+                <td style="color: red;">{{form.inputerror.topicName}}</td>
             </tr>
 
             <tr>
-                <th align="left">Output Level<span style="color: red">*</span></th>
+                <th align="left">Partitions<span style="color: red">*</span></th>
                 <td>
-                    <input type="text"class="form-control"name="outputLevel"[(ngModel)]="form.data.outputLevel"[ngModel]="form.data.outputLevel"placeholder="Enter output Level">
+                    <input type="text"class="form-control"name="partitions"[(ngModel)]="form.data.partitions"[ngModel]="form.data.partitions"placeholder="Enter partitions">
                 </td>
-                <td style="color: red;">{{form.inputerror.outputLevel}}</td>
+                <td style="color: red;">{{form.inputerror.partitions}}</td>
             </tr>
 
             <tr>
-                <th align="left">Efficiency Rate<span style="color: red">*</span></th>
+                <th align="left">Status<span style="color: red">*</span></th>
                 <td>
-                    <input type="text"class="form-control"name="efficiencyRate"[(ngModel)]="form.data.efficiencyRate"placeholder="Enter Efficiency Rate">
+                    <input type="text"class="form-control"name="status"[(ngModel)]="form.data.status"placeholder="Enter status">
                 </td>
-                <td style="color: red;">{{form.inputerror.efficiencyRate}}</td>
+                <td style="color: red;">{{form.inputerror.status}}</td>
             </tr>
 
             <tr>

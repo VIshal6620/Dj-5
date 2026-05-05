@@ -248,3 +248,29 @@ class Energy(models.Model):
 
     class Meta:
         db_table = 'sos_energy'
+
+
+class Topic(models.Model):
+    topicCode = models.CharField(max_length=30)
+    topicName = models.CharField(max_length=50)
+    partitions = models.CharField(max_length=50)
+    status = models.CharField(max_length=60)
+
+
+    def to_json(self):
+        data = {
+            'id': self.id,
+            'topicCode': self.topicCode,
+            'topicName': self.topicName,
+            'partitions': self.partitions,
+            'status': self.status
+
+        }
+
+        return data
+
+    class Meta:
+        db_table = 'sos_topic'
+
+
+

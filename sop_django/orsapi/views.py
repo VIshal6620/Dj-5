@@ -17,6 +17,8 @@ from .ctl.ChangePasswordCtl import ChangePasswordCtl
 from .ctl.ForgetPasswordCtl import ForgetPasswordCtl
 from .ctl.ErrorCtl import ErrorCtl
 from .ctl.EnergyCtl import EnergyCtl
+from .ctl.TopicCtl import TopicCtl
+
 
 
 @csrf_exempt
