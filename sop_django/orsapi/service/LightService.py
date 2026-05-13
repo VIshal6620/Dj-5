@@ -1,25 +1,24 @@
-from ..ctl import ErrorCtl
-from ..models import College
-from ..utility.DataValidator import DataValidator
-from .BaseService import BaseService
 from django.db import connection
+from ..models import Light
+from ..service.BaseService import BaseService
+from ..utility.DataValidator import DataValidator
 
 
-class CollegeService(BaseService):
+class LightService(BaseService):
 
 
     def search(self, params):
         try:
             pageNo = (params['pageNo']) * self.pageSize
-            sql = "select * from sos_college where 1=1"
-            val = params.get("name", None)
+            sql = "select * from sos_light where 1=1"
+            val = params.get("lightCode", None)
             if DataValidator.isNotNull(val):
-                sql += " and name like '" + val + "%%'"
+                sql += " and lightCode like '" + val + "%%'"
             sql += " limit %s, %s"
             cursor = connection.cursor()
             cursor.execute(sql, [pageNo, self.pageSize])
             result = cursor.fetchall()
-            columnName = ('id', 'name', 'address', 'state', 'city', 'phoneNumber')
+            columnName = ('id', 'lightCode', 'roomName', 'brightnessLevel', 'status')
             res = {
                 "data": [],
             }
@@ -33,5 +32,5 @@ class CollegeService(BaseService):
             self.map_and_throw_exception(ex)
 
     def get_model(self):
-        return College
+        return Light
 

@@ -27,6 +27,8 @@ import { EnergyComponent } from './energy/energy.component';
 import { EnergyListComponent } from './energy/energy-list.component';
 import { TopicComponent } from './topic/topic.component';
 import { TopicListComponent } from './topic/topic-list.component';
+import { LightComponent } from './light/light.component';
+import { LightListComponent } from './light/light-list.component';
 
 
 
@@ -94,6 +96,11 @@ const routes: Routes = [
     path: 'topic',
     component: TopicComponent
   },
+  {
+    path: 'light',
+    component: LightComponent
+  },
+
   {
     path: 'userlist',
     component: UserListComponent
@@ -181,6 +188,14 @@ const routes: Routes = [
   {
     path: 'topic/:id',
     component: TopicComponent
+  },
+  {
+    path: 'lightlist',
+    component: LightListComponent
+  },
+  {
+    path: 'light/:id',
+    component: LightComponent
   },
   {
     path: 'changepassword',

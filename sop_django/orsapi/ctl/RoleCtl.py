@@ -66,6 +66,7 @@ class RoleCtl(BaseCtl):
             if (size > 0):
                 res["success"] = False
                 res["result"]["inputerror"] = duplicateErrors
+                res["result"]["message"] = "Already exist"
                 return JsonResponse(res)
 
             # Add/ Update the user

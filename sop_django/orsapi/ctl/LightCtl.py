@@ -2,18 +2,18 @@ import json
 from django.http import JsonResponse
 from ..ctl.BaseCtl import BaseCtl
 from ..ctl.ErrorCtl import ErrorCtl
-from ..models import Topic
-from ..service.TopicService import TopicService
+from ..models import Light
+from ..service.LightService import LightService
 from ..utility.DataValidator import DataValidator
 
 
-class TopicCtl(BaseCtl):
+class LightCtl(BaseCtl):
 
     def request_to_form(self, requestForm):
         self.form['id'] = requestForm.get('id','')
-        self.form['topicCode'] = requestForm.get('topicCode','')
-        self.form['topicName'] = requestForm.get('topicName','')
-        self.form['partitions'] = requestForm.get('partitions','')
+        self.form['lightCode'] = requestForm.get('lightCode','')
+        self.form['roomName'] = requestForm.get('roomName','')
+        self.form['brightnessLevel'] = requestForm.get('brightnessLevel','')
         self.form['status'] = requestForm.get('status','')
 
 
@@ -21,9 +21,9 @@ class TopicCtl(BaseCtl):
         pk = int(self.form['id'])
         if (pk > 0):
             obj.id = pk
-        obj.topicCode = self.form['topicCode']
-        obj.topicName = self.form['topicName']
-        obj.partitions = self.form['partitions']
+        obj.lightCode = self.form['lightCode']
+        obj.roomName = self.form['roomName']
+        obj.brightnessLevel = self.form['brightnessLevel']
         obj.status = self.form['status']
         return obj
 
@@ -31,9 +31,9 @@ class TopicCtl(BaseCtl):
         if (obj == None):
             return
         self.form['id'] = obj.id
-        self.form['topicCode'] = obj.topicCode
-        self.form['topicName'] = obj.topicName
-        self.form['partitions'] = obj.partitions
+        self.form['lightCode'] = obj.lightCode
+        self.form['roomName'] = obj.roomName
+        self.form['brightnessLevel'] = obj.brightnessLevel
         self.form['status'] = obj.status
 
 
@@ -41,28 +41,28 @@ class TopicCtl(BaseCtl):
         super().input_validation()
         inputError = self.form['inputError']
 
-        if (DataValidator.isNull(self.form['topicCode'])):
-            inputError['topicCode'] = "topicCode can not be null"
+        if (DataValidator.isNull(self.form['lightCode'])):
+            inputError['lightCode'] = "lightCode can not be null"
             self.form['error'] = True
         else:
-            if (DataValidator.isAlphaNumeric(self.form['topicCode'])):
-                inputError['topicCode'] = "topicCode contains only ABC123 "
+            if (DataValidator.isAlphaNumeric(self.form['lightCode'])):
+                inputError['lightCode'] = "lightCode contains only ABC123 "
                 self.form['error'] = True
 
-        if (DataValidator.isNull(self.form['topicName'])):
-            inputError['topicName'] = "topicName can not be null"
+        if (DataValidator.isNull(self.form['roomName'])):
+            inputError['roomName'] = "roomName can not be null"
             self.form['error'] = True
         else:
-            if (DataValidator.isalphacehck(self.form['topicName'])):
-                inputError['topicName'] = "topicName contains only letter"
+            if (DataValidator.isalphacehck(self.form['roomName'])):
+                inputError['roomName'] = "roomName contains only letter"
                 self.form['error'] = True
 
-        if (DataValidator.isNull(self.form['partitions'])):
-            inputError['partitions'] = "partitions can not be null"
+        if (DataValidator.isNull(self.form['brightnessLevel'])):
+            inputError['brightnessLevel'] = "brightnessLevel can not be null"
             self.form['error'] = True
         else:
-            if (DataValidator.isSpecial(self.form['partitions'])):
-                inputError['partitions'] = "partitions contains only "
+            if (DataValidator.isSpecial(self.form['brightnessLevel'])):
+                inputError['brightnessLevel'] = "brightnessLevel contains only "
                 self.form['error'] = True
 
         if (DataValidator.isNull(self.form['status'])):
@@ -90,7 +90,7 @@ class TopicCtl(BaseCtl):
                 return JsonResponse(res)
             # Check unique elements
             pk = int(self.form['id'])
-            uniqueAttrib = {"topicCode": self.form['topicCode']}
+            uniqueAttrib = {"lightCode": self.form['lightCode']}
             duplicateErrors = self.get_service().mduplicateFields(uniqueAttrib, pk)
             size = len(duplicateErrors)
             if (size > 0):
@@ -98,12 +98,12 @@ class TopicCtl(BaseCtl):
                 res["result"]["inputerror"] = duplicateErrors
                 return JsonResponse(res)
 
-            # Add/ Update the Topic
-            topic = self.form_to_model(Topic())
-            self.get_service().save(topic)
+            # Add/ Update the Light
+            light = self.form_to_model(Light())
+            self.get_service().save(light)
             res["success"] = True
-            res["result"]["data"] = topic.id
-            res["result"]["message"] = "Topic added successfully"
+            res["result"]["data"] = light.id
+            res["result"]["message"] = "Light added successfully"
             return JsonResponse(res)
 
         except Exception as ex:
@@ -114,13 +114,13 @@ class TopicCtl(BaseCtl):
             json_request = json.loads(request.body)
             res = {"result": {}, "success": True}
             if (json_request):
-                params["topicCode"] = json_request.get("topicCode", None)
+                params["lightCode"] = json_request.get("lightCode", None)
                 params["pageNo"] = json_request.get("pageNo", None)
             records = self.get_service().search(params)
             if records and records.get("data"):
                 res["success"] = True
                 res["result"]["data"] = records["data"]
-                res["result"]["lastId"] = Topic.objects.last().id
+                res["result"]["lastId"] = Light.objects.last().id
             else:
                 res["success"] = False
                 res["result"]["message"] = "No record found"
@@ -161,14 +161,14 @@ class TopicCtl(BaseCtl):
     def preload(self, request, params={}):
         try:
             res = {"result": {}, "success": True}
-            topic_list = TopicService().preload()
+            light_list = LightService().preload()
             preloadList = []
-            for x in topic_list:
+            for x in light_list:
                 preloadList.append(x.to_json())
-            res["result"]["topicList"] = preloadList
+            res["result"]["lightList"] = preloadList
             return JsonResponse(res)
         except Exception as ex:
             return ErrorCtl.handle(ex)
 
     def get_service(self):
-        return TopicService()
+        return LightService()

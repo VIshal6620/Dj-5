@@ -19,4 +19,5 @@ export class EndpointServiceService {
   public FACULTY = this.SERVER_URL + "/Faculty";
   public ENERGY = this.SERVER_URL + "/Energy";
   public TOPIC = this.SERVER_URL + "/Topic";
+  public LIGHT = this.SERVER_URL + "/Light"
 }

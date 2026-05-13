@@ -272,5 +272,26 @@ class Topic(models.Model):
     class Meta:
         db_table = 'sos_topic'
 
+class Light(models.Model):
+    lightCode = models.CharField(max_length=30)
+    roomName = models.CharField(max_length=30)
+    brightnessLevel = models.CharField(max_length=30)
+    status = models.CharField(max_length=50)
+
+    def to_json(self):
+        data = {
+            'id': self.id,
+            'lightCode': self.lightCode,
+            'roomName': self.roomName,
+            'brightnessLevel': self.brightnessLevel,
+            'status': self.status
+        }
+        return data
+
+    class Meta:
+        db_table = 'sos_light'
+
+
+
 
 

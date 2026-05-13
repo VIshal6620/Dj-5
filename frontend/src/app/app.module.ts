@@ -37,6 +37,8 @@ import { EnergyComponent } from './energy/energy.component';
 import { EnergyListComponent } from './energy/energy-list.component';
 import { TopicComponent } from './topic/topic.component';
 import { TopicListComponent } from './topic/topic-list.component';
+import { LightComponent } from './light/light.component';
+import { LightListComponent } from './light/light-list.component';
 
 
 
@@ -71,7 +73,9 @@ import { TopicListComponent } from './topic/topic-list.component';
     EnergyComponent,
     EnergyListComponent,
     TopicComponent,
-    TopicListComponent,  
+    TopicListComponent,
+    LightComponent,
+    LightListComponent,  
     
   ],
   imports: [

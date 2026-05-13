@@ -24,6 +24,7 @@ class BaseService(ABC):
 
 
 
+
     def save(self, obj):
         try:
             if obj.id == 0:
