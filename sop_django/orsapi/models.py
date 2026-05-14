@@ -292,6 +292,26 @@ class Light(models.Model):
         db_table = 'sos_light'
 
 
+class Podcast(models.Model):
+    podcastCode = models.CharField(max_length=30)
+    podcastTitle = models.CharField(max_length=30)
+    hostName = models.CharField(max_length=50)
+    status = models.CharField(max_length=50)
+
+    def to_json(self):
+        data = {
+            'id': self.id,
+            'podcastCode': self.podcastCode,
+            'podcastTitle': self.podcastTitle,
+            'hostName': self.hostName,
+            'status': self.status
+        }
+        return data
+
+    class Meta:
+        db_table = 'sos_podcast'
+
+
 
 
 

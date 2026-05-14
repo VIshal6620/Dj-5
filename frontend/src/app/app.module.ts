@@ -39,6 +39,8 @@ import { TopicComponent } from './topic/topic.component';
 import { TopicListComponent } from './topic/topic-list.component';
 import { LightComponent } from './light/light.component';
 import { LightListComponent } from './light/light-list.component';
+import { PodcastComponent } from './podcast/podcast.component';
+import { PodcastListComponent } from './podcast/podcast-list.component';
 
 
 
@@ -75,7 +77,9 @@ import { LightListComponent } from './light/light-list.component';
     TopicComponent,
     TopicListComponent,
     LightComponent,
-    LightListComponent,  
+    LightListComponent,
+    PodcastComponent,
+    PodcastListComponent,  
     
   ],
   imports: [
