@@ -20,6 +20,7 @@ from .ctl.EnergyCtl import EnergyCtl
 from .ctl.TopicCtl import TopicCtl
 from .ctl.LightCtl import LightCtl
 from .ctl.PodcastCtl import PodcastCtl
+from .ctl.CourierCtl import CourierCtl
 
 
 @csrf_exempt

@@ -1,7 +1,6 @@
 <app-navbar></app-navbar>
 
-<div
-     style="
+<div style="
      background-image: url('assets/whit.jpg');
      background-size: cover;
      background-position: center;
@@ -37,8 +36,9 @@
                     <td align="center">
 
                         <label><b>energySource: </b></label>
-                        <input type="text"class="form-control d-inline w-auto"name="energySource"[(ngModel)]="form.energySource"placeholder="Enter Energy Source">
-                               
+                        <input type="text" class="form-control d-inline w-auto" name="energySource"
+                            [(ngModel)]="form.energySource" placeholder="Enter Energy Source">
+
                         <button class="btn btn-primary btn-sm ms-2" (click)="search()">Search</button>
                         <button class="btn btn-secondary btn-sm ms-2" (click)="reset()">Reset</button>
 
@@ -49,15 +49,12 @@
             <br>
 
             <!-- Table -->
-            <table border="1"
-                   class="table table-bordered table-hover text-center align-middle"
-                   style="width: 100%; min-width: 1000px;">
+            <table border="1" class="table table-bordered table-hover text-center align-middle"
+                style="width: 100%; min-width: 1000px;">
 
                 <tr class="table-primary">
                     <th>
-                        <input type="checkbox"
-                               [(ngModel)]="isMasterSel"
-                               (change)="checkUncheckAll($event)" />
+                        <input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)" />
                     </th>
                     <th>S.No</th>
                     <th>Energy Source </th>
@@ -68,13 +65,10 @@
                 </tr>
 
                 <tr *ngFor="let m of form.list; let i = index">
-                     <td>
-            <input type="checkbox"
-                   #checkboxes
-                   (change)="checklistUpdate()"
-                   [id]="m.id"
-                   [value]="isMasterSel">
-          </td>
+                    <td>
+                        <input type="checkbox" #checkboxes (change)="checklistUpdate()" [id]="m.id"
+                            [value]="isMasterSel">
+                    </td>
 
                     <td>{{(form.pageNo*5)+i+ 1}}</td>
                     <td>{{m.energySource}}</td>
@@ -84,8 +78,7 @@
 
                     <!-- ✅ EDIT FIX -->
                     <td>
-                        <a (click)="forward('/energy/' + m.id)"
-                           class="btn btn-sm btn-outline-primary">
+                        <a (click)="forward('/energy/' + m.id)" class="btn btn-sm btn-outline-primary">
                             <i class="fa fa-edit"></i> Edit
                         </a>
                     </td>
@@ -100,31 +93,26 @@
                 <tr>
 
                     <td style="width: 25%">
-                        <button class="btn btn-outline-primary"
-                                (click)="previous()"
-                                [disabled]="form.pageNo == 0">
+                        <button class="btn btn-outline-primary" (click)="previous()" [disabled]="form.pageNo == 0">
                             Previous
                         </button>
                     </td>
 
                     <td align="center" style="width: 25%">
-                        <button class="btn btn-success"
-                                (click)="forward('/energy')">
+                        <button class="btn btn-success" (click)="forward('/energy')">
                             New
                         </button>
                     </td>
 
                     <td align="center" style="width: 25%">
-                        <button class="btn btn-danger"
-                                (click)="delete()">
+                        <button class="btn btn-danger" (click)="delete()">
                             Delete
                         </button>
                     </td>
 
                     <td style="width: 25%" align="right">
-                        <button class="btn btn-outline-primary"
-                                (click)="next()"
-                                [disabled]="form.list.length == 0 || form.list[form.list.length-1].id == form.lastId">
+                        <button class="btn btn-outline-primary" (click)="next()"
+                            [disabled]="form.list.length == 0 || form.list[form.list.length-1].id == form.lastId">
                             Next
                         </button>
                     </td>
@@ -143,5 +131,3 @@
 </div>
 
 <app-footer></app-footer>
-
-

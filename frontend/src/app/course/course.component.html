@@ -1,7 +1,6 @@
 <app-navbar></app-navbar>
 
-<div align="center"
-     style="
+<div align="center" style="
      background-image: url('assets/2.jpg');
      background-size: cover;
      background-position: center;
@@ -39,11 +38,8 @@
             <tr>
                 <th align="left">Name<span style="color: red">*</span></th>
                 <td>
-                    <input type="text"
-                           class="form-control"
-                           name="name"
-                           [(ngModel)]="form.data.name"
-                           placeholder="Enter Course Name">
+                    <input type="text" class="form-control" name="name" [(ngModel)]="form.data.name"
+                        placeholder="Enter Course Name">
                 </td>
                 <td style="color: red;">{{form.inputerror.name}}</td>
             </tr>
@@ -52,9 +48,7 @@
             <tr>
                 <th align="left">Duration<span style="color: red">*</span></th>
                 <td>
-                    <select name="duration"
-                            class="form-select"
-                            [(ngModel)]="form.data.duration">
+                    <select name="duration" class="form-select" [(ngModel)]="form.data.duration">
                         <option value="undefined">------------Select------------</option>
                         <option [value]="1">1 Year</option>
                         <option [value]="2">2 Year</option>
@@ -70,11 +64,7 @@
             <tr>
                 <th align="left">Description<span style="color: red">*</span></th>
                 <td>
-                    <textarea
-                        class="form-control"
-                        name="description"
-                        [(ngModel)]="form.data.description"
-                        rows="3"
+                    <textarea class="form-control" name="description" [(ngModel)]="form.data.description" rows="3"
                         placeholder="Enter Short description">
                     </textarea>
                 </td>

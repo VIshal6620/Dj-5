@@ -18,7 +18,7 @@ export class BaseCtl implements OnInit {
         list: [], // search list 
         nextListSize: 0,
         pageNo: 0,
-        lastId:0
+        lastId: 0
     };
 
     public api: any = {

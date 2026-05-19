@@ -311,6 +311,24 @@ class Podcast(models.Model):
     class Meta:
         db_table = 'sos_podcast'
 
+class Courier(models.Model):
+    senderName = models.CharField(max_length=30)
+    receiverName = models.CharField(max_length=30)
+    status = models.CharField(max_length=30)
+    deliveryDate = models.DateField(max_length=15)
+
+    def to_json(self):
+        data = {
+            'id': self.id,
+            'senderName': self.senderName,
+            'receiverName': self.receiverName,
+            'status': self.status,
+            'deliveryDate': self.deliveryDate
+        }
+        return data
+    class Meta:
+        db_table = 'sos_courier'
+
 
 
 

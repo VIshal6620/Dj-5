@@ -63,13 +63,10 @@
                 </tr>
 
                 <tr *ngFor="let m of form.list; let i = index">
-                     <td>
-            <input type="checkbox"
-                   #checkboxes
-                   (change)="checklistUpdate()"
-                   [id]="m.id"
-                   [value]="isMasterSel">
-          </td>
+                    <td>
+                        <input type="checkbox" #checkboxes (change)="checklistUpdate()" [id]="m.id"
+                            [value]="isMasterSel">
+                    </td>
 
                     <td>{{(form.pageNo*5)+i+ 1}}</td>
                     <td>{{m.name}}</td>
@@ -132,7 +129,3 @@
 </div>
 
 <app-footer></app-footer>
-
-
-
-

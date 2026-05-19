@@ -21,4 +21,5 @@ export class EndpointServiceService {
   public TOPIC = this.SERVER_URL + "/Topic";
   public LIGHT = this.SERVER_URL + "/Light";
   public PODCAST = this.SERVER_URL + "/Podcast"
+  public COURIER = this.SERVER_URL + "/Courier"
 }

@@ -31,6 +31,8 @@ import { LightComponent } from './light/light.component';
 import { LightListComponent } from './light/light-list.component';
 import { PodcastComponent } from './podcast/podcast.component';
 import { PodcastListComponent } from './podcast/podcast-list.component';
+import { CourierComponent } from './courier/courier.component';
+import { CourierListComponent } from './courier/courier-list.component';
 
 
 
@@ -105,6 +107,10 @@ const routes: Routes = [
   {
     path: 'podcast',
     component: PodcastComponent
+  },
+  {
+    path: 'courier',
+    component: CourierComponent
   },
 
   {
@@ -212,20 +218,28 @@ const routes: Routes = [
     component: PodcastComponent
   },
   {
+    path: 'courierlist',
+    component: CourierListComponent
+  },
+  {
+    path: 'courier/:id',
+    component: CourierComponent
+  },
+  {
     path: 'changepassword',
     component: ChangepasswordComponent
   },
   {
     path: 'forgetpassword',
-    component:ForgetpasswordComponent
+    component: ForgetpasswordComponent
   }
 
 ];
 
 @NgModule({
-  
+
   // imports: [RouterModule.forRoot(routes)],
-  
+
   imports: [RouterModule.forRoot(routes, { useHash: true })],
   exports: [RouterModule]
 })

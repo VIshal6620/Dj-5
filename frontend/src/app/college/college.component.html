@@ -1,7 +1,6 @@
 <app-navbar></app-navbar>
 
-<div align="center"
-     style="
+<div align="center" style="
      background-image: url('assets/2.jpg');
      background-size: cover;
      background-position: center;
@@ -38,10 +37,8 @@
             <tr>
                 <th align="left">Name<span style="color: red">*</span></th>
                 <td>
-                    <input type="text" class="form-control"
-                           name="name"
-                           [(ngModel)]="form.data.name"
-                           placeholder="Enter College Name">
+                    <input type="text" class="form-control" name="name" [(ngModel)]="form.data.name"
+                        placeholder="Enter College Name">
                 </td>
                 <td style="color: red;">{{form.inputerror.name}}</td>
             </tr>
@@ -49,10 +46,8 @@
             <tr>
                 <th align="left">Address<span style="color: red">*</span></th>
                 <td>
-                    <input type="text" class="form-control"
-                           name="address"
-                           [(ngModel)]="form.data.address"
-                           placeholder="Enter Address">
+                    <input type="text" class="form-control" name="address" [(ngModel)]="form.data.address"
+                        placeholder="Enter Address">
                 </td>
                 <td style="color: red;">{{form.inputerror.address}}</td>
             </tr>
@@ -60,10 +55,8 @@
             <tr>
                 <th align="left">State<span style="color: red">*</span></th>
                 <td>
-                    <input type="text" class="form-control"
-                           name="state"
-                           [(ngModel)]="form.data.state"
-                           placeholder="Enter State">
+                    <input type="text" class="form-control" name="state" [(ngModel)]="form.data.state"
+                        placeholder="Enter State">
                 </td>
                 <td style="color: red;">{{form.inputerror.state}}</td>
             </tr>
@@ -71,10 +64,8 @@
             <tr>
                 <th align="left">City<span style="color: red">*</span></th>
                 <td>
-                    <input type="text" class="form-control"
-                           name="city"
-                           [(ngModel)]="form.data.city"
-                           placeholder="Enter City">
+                    <input type="text" class="form-control" name="city" [(ngModel)]="form.data.city"
+                        placeholder="Enter City">
                 </td>
                 <td style="color: red;">{{form.inputerror.city}}</td>
             </tr>
@@ -82,11 +73,8 @@
             <tr>
                 <th align="left">Phone No<span style="color: red">*</span></th>
                 <td>
-                    <input type="text" class="form-control"
-                           name="phoneNumber"
-                           [(ngModel)]="form.data.phoneNumber"
-                           maxlength="10"
-                           placeholder="Enter Phone No.">
+                    <input type="text" class="form-control" name="phoneNumber" [(ngModel)]="form.data.phoneNumber"
+                        maxlength="10" placeholder="Enter Phone No.">
                 </td>
                 <td style="color: red;">{{form.inputerror.phoneNumber}}</td>
             </tr>
@@ -104,4 +92,3 @@
 </div>
 
 <app-footer></app-footer>
-

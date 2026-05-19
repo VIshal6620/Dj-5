@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class HttpServiceService {
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   post(endpoint: any, bean: any, callback: any) {
     this.httpClient.post(endpoint, bean).subscribe(
@@ -18,9 +18,9 @@ export class HttpServiceService {
         const res = err?.error && err.error.success !== undefined
           ? err.error
           : {
-              success: false,
-              result: { message: 'Unable to connect. Please try again later' }
-            };
+            success: false,
+            result: { message: 'Unable to connect. Please try again later' }
+          };
 
         callback(res);
       }
@@ -36,9 +36,9 @@ export class HttpServiceService {
         const res = err?.error && err.error.success !== undefined
           ? err.error
           : {
-              success: false,
-              result: { message: 'Unable to connect. Please try again later' }
-            };
+            success: false,
+            result: { message: 'Unable to connect. Please try again later' }
+          };
 
         callback(res);
       }

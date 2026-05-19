@@ -1,7 +1,6 @@
 <app-navbar></app-navbar>
 
-<div
-     style="
+<div style="
      background-image: url('assets/whit.jpg');
      background-size: cover;
      background-position: center;
@@ -37,11 +36,8 @@
                     <td align="center">
                         <label><b>College Name: </b></label>
 
-                        <input type="text"
-                               class="form-control d-inline w-auto"
-                               name="name"
-                               [(ngModel)]="form.name"
-                               placeholder="Enter College Name">
+                        <input type="text" class="form-control d-inline w-auto" name="name" [(ngModel)]="form.name"
+                            placeholder="Enter College Name">
 
                         <button class="btn btn-primary btn-sm ms-2" (click)="search()">Search</button>
                         <button class="btn btn-secondary btn-sm ms-2" (click)="reset()">Reset</button>
@@ -52,15 +48,12 @@
             <br>
 
             <!-- ✅ FULL WIDTH TABLE -->
-            <table border="1"
-                   class="table table-bordered table-hover text-center align-middle"
-                   style="width: 100%; min-width: 1000px;">
+            <table border="1" class="table table-bordered table-hover text-center align-middle"
+                style="width: 100%; min-width: 1000px;">
 
                 <tr class="table-primary">
                     <th>
-                        <input type="checkbox"
-                               [(ngModel)]="isMasterSel"
-                               (change)="checkUncheckAll($event)" />
+                        <input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)" />
                     </th>
                     <th>S.No</th>
                     <th>Name</th>
@@ -72,13 +65,10 @@
                 </tr>
 
                 <tr *ngFor="let m of form.list; let i = index">
-                     <td>
-            <input type="checkbox"
-                   #checkboxes
-                   (change)="checklistUpdate()"
-                   [id]="m.id"
-                   [value]="isMasterSel">
-          </td>
+                    <td>
+                        <input type="checkbox" #checkboxes (change)="checklistUpdate()" [id]="m.id"
+                            [value]="isMasterSel">
+                    </td>
 
                     <td>{{(form.pageNo*5)+i+ 1}}</td>
                     <td>{{m.name}}</td>
@@ -88,9 +78,8 @@
                     <td>{{m.phoneNumber}}</td>
 
                     <td>
-                        <a (click)="forward('/college/' +  m.id)"
-                           class="text-primary"
-                           style="cursor: pointer; text-decoration: none;">
+                        <a (click)="forward('/college/' +  m.id)" class="text-primary"
+                            style="cursor: pointer; text-decoration: none;">
                             Edit
                         </a>
                     </td>
@@ -104,31 +93,25 @@
             <table style="width: 100%">
                 <tr>
                     <td style="width: 25%">
-                        <button class="btn btn-outline-primary"
-                                (click)="previous()"
-                                [disabled]="form.pageNo == 0">
+                        <button class="btn btn-outline-primary" (click)="previous()" [disabled]="form.pageNo == 0">
                             Previous
                         </button>
                     </td>
 
                     <td align="center" style="width: 25%">
-                        <button class="btn btn-success"
-                                (click)="forward('/college')">
+                        <button class="btn btn-success" (click)="forward('/college')">
                             New
                         </button>
                     </td>
 
                     <td align="center" style="width: 25%">
-                        <button class="btn btn-danger"
-                                (click)="delete()">
+                        <button class="btn btn-danger" (click)="delete()">
                             Delete
                         </button>
                     </td>
 
                     <td style="width: 25%" align="right">
-                        <button class="btn btn-outline-primary"
-                                [disabled]="form.list.length < 5"
-                                (click)="next()">
+                        <button class="btn btn-outline-primary" [disabled]="form.list.length < 5" (click)="next()">
                             Next
                         </button>
                     </td>
@@ -146,4 +129,3 @@
 </div>
 
 <app-footer></app-footer>
-
