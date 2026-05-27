@@ -43,6 +43,10 @@ import { PodcastComponent } from './podcast/podcast.component';
 import { PodcastListComponent } from './podcast/podcast-list.component';
 import { CourierComponent } from './courier/courier.component';
 import { CourierListComponent } from './courier/courier-list.component';
+import { HotelComponent } from './hotel/hotel.component';
+import { HotelListComponent } from './hotel/hotel-list.component';
+import { CloudComponent } from './cloud/cloud.component';
+import { CloudListComponent } from './cloud/cloud-list.component';
 
 
 
@@ -84,6 +88,10 @@ import { CourierListComponent } from './courier/courier-list.component';
     PodcastListComponent,
     CourierComponent,
     CourierListComponent,
+    HotelComponent,
+    HotelListComponent,
+    CloudComponent,
+    CloudListComponent,
 
   ],
   imports: [

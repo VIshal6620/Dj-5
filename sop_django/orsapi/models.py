@@ -329,6 +329,43 @@ class Courier(models.Model):
     class Meta:
         db_table = 'sos_courier'
 
+class Hotel(models.Model):
+    guestName = models.CharField(max_length=30)
+    roomType = models.CharField(max_length=30)
+    checkInDate = models.DateField(max_length=15)
+    totalBill = models.CharField(max_length=30)
+
+    def to_json(self):
+        data = {
+            'id': self.id,
+            'guestName': self.guestName,
+            'roomType': self.roomType,
+            'checkInDate': self.checkInDate,
+            'totalBill': self.totalBill
+        }
+        return data
+    class Meta:
+        db_table = 'sos_hotel'
+
+
+class Cloud(models.Model):
+    fileName = models.CharField(max_length=30)
+    fileSize = models.CharField(max_length=30)
+    uploadDate = models.DateField(max_length=15)
+    storageType = models.CharField(max_length=30)
+
+    def to_json(self):
+        data = {
+            'id': self.id,
+            'fileName': self.fileName,
+            'fileSize': self.fileSize,
+            'uploadDate': self.uploadDate,
+            'storageType': self.storageType
+        }
+        return data
+    class Meta:
+        db_table = 'sos_cloud'
+
 
 
 

@@ -1,0 +1,36 @@
+from django.db import connection
+from ..models import Hotel
+from ..service.BaseService import BaseService
+from ..utility.DataValidator import DataValidator
+
+
+class HotelService(BaseService):
+
+
+    def search(self, params):
+        try:
+            pageNo = (params['pageNo']) * self.pageSize
+            sql = "select * from sos_hotel where 1=1"
+            val = params.get("guestName", None)
+            if DataValidator.isNotNull(val):
+                sql += " and guestName like '" + val + "%%'"
+            sql += " limit %s, %s"
+            cursor = connection.cursor()
+            cursor.execute(sql, [pageNo, self.pageSize])
+            result = cursor.fetchall()
+            columnName = ('id', 'guestName', 'roomType', 'checkInDate', 'totalBill')
+            res = {
+                "data": [],
+            }
+            params["index"] = ((params['pageNo'] - 1) * self.pageSize)
+            for x in result:
+                print({columnName[i]: x[i] for i, _ in enumerate(x)})
+                params['maxId'] = x[0]
+                res['data'].append({columnName[i]: x[i] for i, _ in enumerate(x)})
+            return res
+        except Exception as ex:
+            self.map_and_throw_exception(ex)
+
+    def get_model(self):
+        return Hotel
+

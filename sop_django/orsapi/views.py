@@ -21,6 +21,8 @@ from .ctl.TopicCtl import TopicCtl
 from .ctl.LightCtl import LightCtl
 from .ctl.PodcastCtl import PodcastCtl
 from .ctl.CourierCtl import CourierCtl
+from .ctl.HotelCtl import HotelCtl
+from .ctl.CloudCtl import CloudCtl
 
 
 @csrf_exempt

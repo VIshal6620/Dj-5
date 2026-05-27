@@ -17,7 +17,7 @@
     letter-spacing: 1px;
     text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   ">
-        Courier List
+        HotelBooking List
     </h1>
 
     <!-- Message -->
@@ -46,30 +46,17 @@
         <div *ngIf="form.list.length > 0">
 
             <!-- Search Section -->
-            <table style="width: 100%;">
+            <table style="width: 100%">
                 <tr>
                     <td align="center">
 
-                        <label><b>Sender Name :</b></label>
+                        <label><b>GuestName: </b></label>
+                        <input type="text" class="form-control d-inline w-auto" name="guestName"
+                            [(ngModel)]="form.guestName" placeholder="Enter🔍Guest Name">
 
-                        <input type="text" class="form-control d-inline w-auto ms-2" name="senderName"
-                            [(ngModel)]="form.senderName" placeholder="🔍 Enter Sender Name" style="
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid #cfd8dc;
-  ">
+                        <button class="btn btn-primary btn-sm ms-2" (click)="search()">Search</button>
+                        <button class="btn btn-secondary btn-sm ms-2" (click)="reset()">Reset</button>
 
-                        <button class="btn btn-primary" style="
-    border-radius: 10px;
-    padding: 8px 20px;
-    font-weight: 600;
-  ">
-                            Search
-                        </button>
-
-                        <button class="btn btn-secondary btn-sm ms-2" (click)="reset()">
-                            Reset
-                        </button>
 
                     </td>
                 </tr>
@@ -77,28 +64,22 @@
 
             <br>
 
-            <!-- Courier Table -->
-            <table border="1" class="table table-bordered table-hover text-center align-middle" style="
-          width: 100%;
-          min-width: 1000px;
-          background-color: white;
-        ">
+            <!-- Hotel Table -->
+            <table border="1" class="table table-bordered table-hover text-center align-middle" 
+                style="width: 100%;min-width: 1000px;background-color: white;">
 
                 <!-- Table Header -->
-                <tr style="
-    background: linear-gradient(90deg,#1d2ae2,#4f5fff);
-    color: white;
-  ">
+                <tr style="background: linear-gradient(90deg,#1d2ae2,#4f5fff);color: white;">
 
                     <th>
                         <input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)" />
                     </th>
 
                     <th>S.No</th>
-                    <th>Sender Name</th>
-                    <th>Receiver Name</th>
-                    <th>Status</th>
-                    <th>Delivery Date</th>
+                    <th>Guest Name</th>
+                    <th>Room Type</th>
+                    <th>CheckIn Date</th>
+                    <th>Total Bill</th>
                     <th>Edit</th>
 
                 </tr>
@@ -112,15 +93,15 @@
                     </td>
 
                     <td>{{ (form.pageNo * 5) + i + 1 }}</td>
-                    <td>{{ m.senderName }}</td>
-                    <td>{{ m.receiverName }}</td>
-                    <td>{{ m.status }}</td>
-                    <td>{{ m.deliveryDate }}</td>
+                    <td>{{ m.guestName }}</td>
+                    <td>{{ m.roomType }}</td>
+                    <td>{{ m.checkInDate }}</td>
+                    <td>{{ m.totalBill }}</td>
 
                     <!-- Edit Button -->
                     <td>
 
-                        <a (click)="forward('/courier/' + m.id)" class="btn btn-sm btn-outline-primary">
+                        <a (click)="forward('/hotel/' + m.id)" class="btn btn-sm btn-outline-primary">
                             <i class="fa fa-edit"></i> Edit
                         </a>
 
@@ -149,7 +130,7 @@
                     <!-- New -->
                     <td align="center" style="width: 25%;">
 
-                        <button class="btn btn-success" (click)="forward('/courier')">
+                        <button class="btn btn-success" (click)="forward('/hotel')">
                             New
                         </button>
 
@@ -183,7 +164,7 @@
         <!-- No Data -->
         <div *ngIf="form.list.length == 0" align="center">
 
-            <h4 style="color: red;">No Courier Data Found</h4>
+            <h4 style="color: red;">No Hotel Data Found</h4>
 
             <button class="btn btn-secondary mt-2" (click)="reset()">
                 Back
