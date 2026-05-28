@@ -24,4 +24,5 @@ export class EndpointServiceService {
   public COURIER = this.SERVER_URL + "/Courier"
   public HOTEL = this.SERVER_URL + "/Hotel"
   public CLOUD = this.SERVER_URL + "/Cloud"
+  public CAR = this.SERVER_URL + "/Car"
 }

@@ -47,6 +47,8 @@ import { HotelComponent } from './hotel/hotel.component';
 import { HotelListComponent } from './hotel/hotel-list.component';
 import { CloudComponent } from './cloud/cloud.component';
 import { CloudListComponent } from './cloud/cloud-list.component';
+import { CarComponent } from './car/car.component';
+import { CarListComponent } from './car/car-list.component';
 
 
 
@@ -92,6 +94,8 @@ import { CloudListComponent } from './cloud/cloud-list.component';
     HotelListComponent,
     CloudComponent,
     CloudListComponent,
+    CarComponent,
+    CarListComponent,
 
   ],
   imports: [

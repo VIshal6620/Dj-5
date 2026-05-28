@@ -23,6 +23,7 @@ from .ctl.PodcastCtl import PodcastCtl
 from .ctl.CourierCtl import CourierCtl
 from .ctl.HotelCtl import HotelCtl
 from .ctl.CloudCtl import CloudCtl
+from .ctl.CarCtl import CarCtl
 
 
 @csrf_exempt

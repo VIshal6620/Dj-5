@@ -1,0 +1,179 @@
+<app-navbar></app-navbar>
+
+<div style="
+    background-image: url('assets/whit.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 90vh;
+    padding: 80px 20px;
+  ">
+
+    <!-- Heading -->
+    <h1 align="center" style="
+    margin-bottom: 20px;
+    color: #1d2ae2;
+    font-weight: 800;
+    font-size: 55px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  ">
+        CarRental List
+    </h1>
+
+    <!-- Message -->
+    <div style="height: 25px; margin-bottom: 15px; text-align: center;">
+
+        <h5 style="color: green; font-weight: bold;" *ngIf="!form.error && form.message">
+            {{ form.message }}
+        </h5>
+
+        <h5 style="color: red; font-weight: bold;" *ngIf="form.error && form.message">
+            {{ form.message }}
+        </h5>
+
+    </div>
+
+    <!-- Main Container -->
+    <div style="
+      width: 100%;
+      background: rgba(255,255,255,0.93);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+      overflow-x: auto;
+    ">
+
+        <div *ngIf="form.list.length > 0">
+
+            <!-- Search Section -->
+            <table style="width: 100%">
+                <tr>
+                    <td align="center">
+
+                        <label><b>CustomerName: </b></label>
+                        <input type="text" class="form-control d-inline w-auto" name="customerName"
+                            [(ngModel)]="form.customerName" placeholder="Enter🔍Customer Name">
+
+                        <button class="btn btn-primary btn-sm ms-2" (click)="search()">Search</button>
+                        <button class="btn btn-secondary btn-sm ms-2" (click)="reset()">Reset</button>
+
+
+                    </td>
+                </tr>
+            </table>
+
+            <br>
+
+            <!-- Hotel Table -->
+            <table border="1" class="table table-bordered table-hover text-center align-middle" 
+                style="width: 100%;min-width: 1000px;background-color: white;">
+
+                <!-- Table Header -->
+                <tr style="background: linear-gradient(90deg,#1d2ae2,#4f5fff);color: white;">
+
+                    <th>
+                        <input type="checkbox" [(ngModel)]="isMasterSel" (change)="checkUncheckAll($event)" />
+                    </th>
+
+                    <th>S.No</th>
+                    <th>Customer Name</th>
+                    <th>Car Model</th>
+                    <th>RentPer Day</th>
+                    <th>Fuel Type</th>
+                    <th>Edit</th>
+
+                </tr>
+
+                <!-- Table Data -->
+                <tr *ngFor="let m of form.list; let i = index">
+
+                    <td>
+                        <input type="checkbox" #checkboxes (change)="checklistUpdate()" [id]="m.id"
+                            [value]="isMasterSel" />
+                    </td>
+
+                    <td>{{ (form.pageNo * 5) + i + 1 }}</td>
+                    <td>{{ m.customerName }}</td>
+                    <td>{{ m.carModel }}</td>
+                    <td>{{ m.rentPerDay }}</td>
+                    <td>{{ m.fuelType }}</td>
+
+                    <!-- Edit Button -->
+                    <td>
+
+                        <a (click)="forward('/car/' + m.id)" class="btn btn-sm btn-outline-primary">
+                            <i class="fa fa-edit"></i> Edit
+                        </a>
+
+                    </td>
+
+                </tr>
+
+            </table>
+
+            <br>
+
+            <!-- Bottom Buttons -->
+            <table style="width: 100%;">
+
+                <tr>
+
+                    <!-- Previous -->
+                    <td style="width: 25%;">
+
+                        <button class="btn btn-outline-primary" (click)="previous()" [disabled]="form.pageNo == 0">
+                            Previous
+                        </button>
+
+                    </td>
+
+                    <!-- New -->
+                    <td align="center" style="width: 25%;">
+
+                        <button class="btn btn-success" (click)="forward('/car')">
+                            New
+                        </button>
+
+                    </td>
+
+                    <!-- Delete -->
+                    <td align="center" style="width: 25%;">
+
+                        <button class="btn btn-danger" (click)="delete()">
+                            Delete
+                        </button>
+
+                    </td>
+
+                    <!-- Next -->
+                    <td align="right" style="width: 25%;">
+
+                        <button class="btn btn-outline-primary" (click)="next()"
+                            [disabled]="form.list.length == 0 || form.list[form.list.length-1].id == form.lastId">
+                            Next
+                        </button>
+
+                    </td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+        <!-- No Data -->
+        <div *ngIf="form.list.length == 0" align="center">
+
+            <h4 style="color: red;">No Car Data Found</h4>
+
+            <button class="btn btn-secondary mt-2" (click)="reset()">
+                Back
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<app-footer></app-footer>

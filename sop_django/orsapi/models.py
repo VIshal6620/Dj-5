@@ -366,6 +366,24 @@ class Cloud(models.Model):
     class Meta:
         db_table = 'sos_cloud'
 
+class Car(models.Model):
+    customerName = models.CharField(max_length=30)
+    carModel = models.CharField(max_length=40)
+    rentPerDay = models.CharField(max_length=30)
+    fuelType = models.CharField(max_length=40)
+
+    def to_json(self):
+        data = {
+            'id': self.id,
+            'customerName': self.customerName,
+            'carModel': self.carModel,
+            'rentPerDay': self.rentPerDay,
+            'fuelType': self.fuelType
+        }
+        return data
+    class Meta:
+        db_table = 'sos_car'
+
 
 
 
