@@ -49,6 +49,8 @@ import { CloudComponent } from './cloud/cloud.component';
 import { CloudListComponent } from './cloud/cloud-list.component';
 import { CarComponent } from './car/car.component';
 import { CarListComponent } from './car/car-list.component';
+import { ClaimComponent } from './claim/claim.component';
+import { ClaimListComponent } from './claim/claim-list.component';
 
 
 
@@ -96,6 +98,8 @@ import { CarListComponent } from './car/car-list.component';
     CloudListComponent,
     CarComponent,
     CarListComponent,
+    ClaimComponent,
+    ClaimListComponent,
 
   ],
   imports: [

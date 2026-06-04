@@ -385,6 +385,23 @@ class Car(models.Model):
         db_table = 'sos_car'
 
 
+class Claim(models.Model):
+    claimNumber = models.CharField(max_length=30)
+    claimAmount = models.IntegerField()
+    status = models.CharField(max_length=30)
+
+    def to_json(self):
+        data = {
+            'id': self.id,
+            'claimNumber': self.claimNumber,
+            'claimAmount': self.claimAmount,
+            'status': self.status
+        }
+        return data
+    class Meta:
+        db_table = 'sos_claim'
+
+
 
 
 

@@ -24,6 +24,7 @@ from .ctl.CourierCtl import CourierCtl
 from .ctl.HotelCtl import HotelCtl
 from .ctl.CloudCtl import CloudCtl
 from .ctl.CarCtl import CarCtl
+from .ctl.ClaimCtl import ClaimCtl
 
 
 @csrf_exempt
