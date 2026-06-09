@@ -41,6 +41,8 @@ import { CarComponent } from './car/car.component';
 import { CarListComponent } from './car/car-list.component';
 import { ClaimComponent } from './claim/claim.component';
 import { ClaimListComponent } from './claim/claim-list.component';
+import { RepositoryComponent } from './repository/repository.component';
+import { RepositoryListComponent } from './repository/repository-list.component';
 
 
 
@@ -135,6 +137,10 @@ const routes: Routes = [
   {
     path: 'claim',
     component: ClaimComponent
+  },
+  {
+    path: 'repository',
+    component: RepositoryComponent
   },
 
   {
@@ -280,6 +286,14 @@ const routes: Routes = [
   {
     path: 'claim/:id',
     component: ClaimComponent
+  },
+    {
+    path: 'repositorylist',
+    component: RepositoryListComponent
+  },
+  {
+    path: 'repository/:id',
+    component: RepositoryComponent
   },
   {
     path: 'changepassword',

@@ -402,6 +402,24 @@ class Claim(models.Model):
         db_table = 'sos_claim'
 
 
+class Repository(models.Model):
+    repoName = models.CharField(max_length=30)
+    owner = models.CharField(max_length=30)
+    branch = models.CharField(max_length=30)
+    visibility = models.CharField(max_length=30)
+
+    def to_json(self):
+        data = {
+            'id': self.id,
+            'repoName': self.repoName,
+            'owner': self.owner,
+            'branch': self.branch,
+            'visibility': self.visibility
+        }
+        return data
+    class Meta:
+        db_table = 'sos_repository'
+
 
 
 

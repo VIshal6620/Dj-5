@@ -26,4 +26,5 @@ export class EndpointServiceService {
   public CLOUD = this.SERVER_URL + "/Cloud"
   public CAR = this.SERVER_URL + "/Car"
   public CLAIM = this.SERVER_URL + "/Claim"
+  public REPOSITORY = this.SERVER_URL + "/Repository"
 }

@@ -51,6 +51,8 @@ import { CarComponent } from './car/car.component';
 import { CarListComponent } from './car/car-list.component';
 import { ClaimComponent } from './claim/claim.component';
 import { ClaimListComponent } from './claim/claim-list.component';
+import { RepositoryComponent } from './repository/repository.component';
+import { RepositoryListComponent } from './repository/repository-list.component';
 
 
 
@@ -100,6 +102,8 @@ import { ClaimListComponent } from './claim/claim-list.component';
     CarListComponent,
     ClaimComponent,
     ClaimListComponent,
+    RepositoryComponent,
+    RepositoryListComponent,
 
   ],
   imports: [
