@@ -27,4 +27,5 @@ export class EndpointServiceService {
   public CAR = this.SERVER_URL + "/Car"
   public CLAIM = this.SERVER_URL + "/Claim"
   public REPOSITORY = this.SERVER_URL + "/Repository"
+  public COMPLAINT = this.SERVER_URL + "/Complaint"
 }

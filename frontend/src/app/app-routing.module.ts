@@ -43,6 +43,8 @@ import { ClaimComponent } from './claim/claim.component';
 import { ClaimListComponent } from './claim/claim-list.component';
 import { RepositoryComponent } from './repository/repository.component';
 import { RepositoryListComponent } from './repository/repository-list.component';
+import { ComplaintComponent } from './complaint/complaint.component';
+import { ComplaintListComponent } from './complaint/complaint-list.component';
 
 
 
@@ -141,6 +143,10 @@ const routes: Routes = [
   {
     path: 'repository',
     component: RepositoryComponent
+  },
+  {
+    path: 'complaint',
+    component: ComplaintComponent
   },
 
   {
@@ -294,6 +300,14 @@ const routes: Routes = [
   {
     path: 'repository/:id',
     component: RepositoryComponent
+  },
+   {
+    path: 'complaintlist',
+    component: ComplaintListComponent
+  },
+  {
+    path: 'complaint/:id',
+    component: ComplaintComponent
   },
   {
     path: 'changepassword',

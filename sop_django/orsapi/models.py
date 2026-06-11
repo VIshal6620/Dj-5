@@ -420,6 +420,26 @@ class Repository(models.Model):
     class Meta:
         db_table = 'sos_repository'
 
+class Complaint(models.Model):
+    citizenID = models.CharField(max_length=30)
+    complaintType = models.CharField(max_length=30)
+    description = models.CharField(max_length=60)
+    status = models.CharField(max_length=30)
+
+    def to_json(self):
+        data = {
+            'id': self.id,
+            'citizenID': self.citizenID,
+            'complaintType': self.complaintType,
+            'description': self.description,
+            'status': self.status
+
+        }
+        return data
+    class Meta:
+        db_table = 'sos_complaint'
+
+
 
 
 

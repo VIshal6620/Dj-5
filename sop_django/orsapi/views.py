@@ -26,6 +26,7 @@ from .ctl.CloudCtl import CloudCtl
 from .ctl.CarCtl import CarCtl
 from .ctl.ClaimCtl import ClaimCtl
 from .ctl.RepositoryCtl import RepositoryCtl
+from .ctl.ComplaintCtl import ComplaintCtl
 
 
 @csrf_exempt

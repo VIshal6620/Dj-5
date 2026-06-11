@@ -53,6 +53,8 @@ import { ClaimComponent } from './claim/claim.component';
 import { ClaimListComponent } from './claim/claim-list.component';
 import { RepositoryComponent } from './repository/repository.component';
 import { RepositoryListComponent } from './repository/repository-list.component';
+import { ComplaintComponent } from './complaint/complaint.component';
+import { ComplaintListComponent } from './complaint/complaint-list.component';
 
 
 
@@ -104,6 +106,8 @@ import { RepositoryListComponent } from './repository/repository-list.component'
     ClaimListComponent,
     RepositoryComponent,
     RepositoryListComponent,
+    ComplaintComponent,
+    ComplaintListComponent,
 
   ],
   imports: [
