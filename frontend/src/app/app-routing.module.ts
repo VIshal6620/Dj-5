@@ -45,6 +45,8 @@ import { RepositoryComponent } from './repository/repository.component';
 import { RepositoryListComponent } from './repository/repository-list.component';
 import { ComplaintComponent } from './complaint/complaint.component';
 import { ComplaintListComponent } from './complaint/complaint-list.component';
+import { JobComponent } from './job/job.component';
+import { JobListComponent } from './job/job-list.component';
 
 
 
@@ -147,6 +149,10 @@ const routes: Routes = [
   {
     path: 'complaint',
     component: ComplaintComponent
+  },
+    {
+    path: 'job',
+    component: JobComponent
   },
 
   {
@@ -308,6 +314,14 @@ const routes: Routes = [
   {
     path: 'complaint/:id',
     component: ComplaintComponent
+  },
+     {
+    path: 'joblist',
+    component: JobListComponent
+  },
+  {
+    path: 'job/:id',
+    component: JobComponent
   },
   {
     path: 'changepassword',

@@ -55,6 +55,8 @@ import { RepositoryComponent } from './repository/repository.component';
 import { RepositoryListComponent } from './repository/repository-list.component';
 import { ComplaintComponent } from './complaint/complaint.component';
 import { ComplaintListComponent } from './complaint/complaint-list.component';
+import { JobComponent } from './job/job.component';
+import { JobListComponent } from './job/job-list.component';
 
 
 
@@ -108,6 +110,8 @@ import { ComplaintListComponent } from './complaint/complaint-list.component';
     RepositoryListComponent,
     ComplaintComponent,
     ComplaintListComponent,
+    JobComponent,
+    JobListComponent,
 
   ],
   imports: [

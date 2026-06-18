@@ -439,6 +439,25 @@ class Complaint(models.Model):
     class Meta:
         db_table = 'sos_complaint'
 
+class Job(models.Model):
+    applicantName = models.CharField(max_length=35)
+    companyName = models.CharField(max_length=40)
+    position = models.CharField(max_length=30)
+    applicationStatus = models.CharField(max_length=40)
+
+    def to_json(self):
+        data = {
+            'id': self.id,
+            'applicantName': self.applicantName,
+            'companyName': self.companyName,
+            'position': self.position,
+            'applicationStatus': self.applicationStatus
+
+        }
+        return data
+    class Meta:
+        db_table = 'sos_job'
+
 
 
 
